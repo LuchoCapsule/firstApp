@@ -50,7 +50,11 @@ jobs:
       with:
         flutter-version: ${{ env.FLUTTER_VERSION }}
 
-       
+    - name: Upload Artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        name: web-build-artifactLucho  # the name of the artifact
+        path: build/web  
 
   deploy:
     needs: build  # wait for the "build" job to get done before executing this "deploy" job
