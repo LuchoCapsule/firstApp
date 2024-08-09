@@ -49,7 +49,12 @@ jobs:
       uses: subosito/flutter-action@v2
       with:
         flutter-version: ${{ env.FLUTTER_VERSION }}
-
+  
+    - name: Flet Build Web
+      run: |
+        flutter config --no-analytics
+        flet build web
+    
     - name: Upload Artifact
       uses: actions/upload-pages-artifact@v3
       with:
